@@ -43,7 +43,7 @@ This will installs the Python PIP and Python-m2crypto packages along with other 
 
 Once the dependent packages are installed, issue the following `pip` command in your command line terminal to install shadowsocks.
 
-	sudo pip install shadowsocks
+	`sudo pip install shadowsocks`
 
 This will installs the latest available package.
 
