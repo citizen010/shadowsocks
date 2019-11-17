@@ -84,11 +84,11 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 2.  Check from its log file if the server has been started successfully, any error will be reported here:
 
-	tail /var/log/shadowsocks.log
+	`tail /var/log/shadowsocks.log`
 
 3.  Also check if the server is listening on port `8000` using below command:
 
-	sudo netstat -tlunap | grep "LISTEN"
+	`sudo netstat -tlunap | grep "LISTEN"`
 
 ## 7. Starting at system boot (optional)
 
