@@ -94,19 +94,19 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 1.  Run the below command to open the `/etc/rc.local` file using your command line editor:
 
-	sudo nano /etc/rc.local
+	`sudo nano /etc/rc.local`
 
 2.  Add the following line to auto start Shadosocks service at boot:
 
-	/usr/bin/python /usr/local/bin/ssserver -c /etc/shadowsocks.json -d start
+	`/usr/bin/python /usr/local/bin/ssserver -c /etc/shadowsocks.json -d start`
 
 3.  It's a good idea to restart your server to see if everything is working:
 
-	sudo shutdown -r now
+	`sudo shutdown -r now`
 
 4.  Once restarted, verify the log file again:
 
-	tail /var/log/shadowsocks.log
+	`tail /var/log/shadowsocks.log`
 
 # Client configuration
 
@@ -114,12 +114,12 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 1.	On your Linux system, run the following command to install Shadowsocks client using PPA by adding a new apt repository.
 
-	sudo add-apt-repository ppa:hzwhuang/ss-qt5
+	`sudo add-apt-repository ppa:hzwhuang/ss-qt5`
 
 2.	Then update your system, so that the newly added repository should be updated and then we can install the Shadowsocks client by issuing the below command.		
 
-	sudo apt-get update
-	sudo apt-get install shadowsocks-qt5
+	`sudo apt-get update`
+	`sudo apt-get install shadowsocks-qt5`
 
 3.	Launch the Shadowsocks-Qt5 from the application manager of your Linux system.
 
