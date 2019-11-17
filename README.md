@@ -21,7 +21,7 @@ Let’s say you find yourself in a situation where OpenVPN traffic is blocked or
 
 3.  Update your system:
 
-	sudo apt-get update && sudo apt-get upgrade
+	`sudo apt-get update && sudo apt-get upgrade`
 
 ## 2. Open Corresponding Firewall Ports
 
