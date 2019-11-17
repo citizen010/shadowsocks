@@ -21,25 +21,21 @@ Let’s say you find yourself in a situation where OpenVPN traffic is blocked or
 
 3.  Update your system:
 
-        `sudo apt-get update && sudo apt-get upgrade`
+			sudo apt-get update && sudo apt-get upgrade
 
 ## 2. Open Corresponding Firewall Ports
 
 In this case we're using Shadowsocks's default port `8000`, but this could be any port you specify later in the configuration file.
 
-    ```
-		sudo ufw allow 8000/tcp
-    sudo ufw enable
-		```
+			sudo ufw allow 8000/tcp
+			sudo ufw enable
 
 ## 3. Installing Pip
 
 Pip is an easy to install package management system which is used to install and manage software found in the Python Package Index and it give us a convenient way to install Shadowsocks. Make sure that `pip` it's installed on your system, if not then use below command to install it.
 
-    ```
-		sudo apt-get install python-pip
-    sudo apt-get install python-m2crypto
-    ```
+			sudo apt-get install python-pip
+			sudo apt-get install python-m2crypto
 
 This will installs the Python PIP and Python-m2crypto packages along with other dependencies. The **m2crypto** package is used to encrypt the tunnel traffic.
 
@@ -47,7 +43,7 @@ This will installs the Python PIP and Python-m2crypto packages along with other 
 
 Once the dependent packages are installed, issue the following `pip` command in your command line terminal to install shadowsocks.
 
-    `sudo pip install shadowsocks`
+			sudo pip install shadowsocks
 
 This will installs the latest available package.
 
