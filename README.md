@@ -1,5 +1,7 @@
 # ShadowSocks Proxy Server
-Installing and configuring a ShawdowSocks Proxy Server and Client on Ubuntu 16.04
+Installing and configuring a ShawdowSocks Proxy Server and Client on Ubuntu 16.04.
+> This __HOW-TO__ as been tested on a Linode VM.
+
 <hr>
 
 [Shadowsocks](https://shadowsocks.org/) is a secure socks5 proxy, designed to protect your internet traffic. It encrypts the traffic between you and the servers, so nobody can spy on you. The main difference compare to VPN is that Shadowsocks is not global, which means not all your traffic will go through the server. If you want to use an Instant Messenger or a uTorrent, you will have to configure those programs settings to use the applicable Socks 5 proxy and port.
@@ -7,7 +9,7 @@ Installing and configuring a ShawdowSocks Proxy Server and Client on Ubuntu 16.0
 Let’s say you find yourself in a situation where OpenVPN traffic is blocked or throttled, Shadowsocks is a good alternative to tunnel the entire network traffic.
 
 >
-> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
+> This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`.
 
 # Server configuration
 
