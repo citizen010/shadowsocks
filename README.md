@@ -1,5 +1,5 @@
 # ShadowSocks Proxy Server
-Installing and configuring a ShawdowSocks Proxy Server and Client on Ubuntu 16.04.2 LTS (Xenial Xerus)
+Installing and configuring a ShawdowSocks Proxy Server and Client on Ubuntu 16.04.6 LTS
 <hr>
 
 [Shadowsocks](https://shadowsocks.org/) is a secure socks5 proxy, designed to protect your internet traffic. It encrypts the traffic between you and the servers, so nobody can spy on you. The main difference compare to VPN is that Shadowsocks is not global, which means not all your traffic will go through the server. If you want to use an Instant Messenger or a uTorrent, you will have to configure those programs settings to use the applicable Socks 5 proxy and port.
@@ -12,7 +12,7 @@ Let’s say you find yourself in a situation where OpenVPN traffic is blocked or
 > This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`. If you’re not familiar with the `sudo` command, see the [Users and Groups](/docs/tools-reference/linux-users-and-groups) guide.
 
 # Server configuration
-		
+
 ## 1. Before You Begin
 
 1.  Familiarize yourself with our [Getting Started](/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
@@ -36,7 +36,7 @@ Pip is an easy to install package management system which is used to install and
 
     sudo apt-get install python-pip
     sudo apt-get install python-m2crypto
-    
+
 This will installs the Python PIP and Python-m2crypto packages along with other dependencies. The **m2crypto** package is used to encrypt the tunnel traffic.
 
 ## 4. Installing Shadowsocks
@@ -54,7 +54,7 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 1.  Run the below command to open a new file using your command line editor and put the following configuration parameters in it.
 ```
         sudo vim /etc/shadowsocks.json
-	
+
 	{
     		"server":"your_server_ip",
     		"server_port":8000,
@@ -66,7 +66,7 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 ```
 >
 > Be sure to replace `your_server_ip` with the ip address of your own Ubuntu Server. Usually, Shadowsocks listen on port `8000` but you can change with your own port. If so, remenber to modify the previous firewall rule accordingly.
-`local-port` is referring to a listening port on your client device (Windows PC, Apple PC, etc.), you can leave it as it is. Be sure to replace **p4ssw0rD** with your own strong password. 
+`local-port` is referring to a listening port on your client device (Windows PC, Apple PC, etc.), you can leave it as it is. Be sure to replace **p4ssw0rD** with your own strong password.
 
 2.  Save and close the configuration file and move to the next step to start your Shahdosocks server on your Linode.
 
@@ -75,19 +75,19 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 1.  Once you have your configuration in place, use below commands to start, stop or restart your Shadowsocks server as shown:
 
         sudo ssserver -c /etc/shadowsocks.json -d start
-    
+
         sudo ssserver -c /etc/shadowsocks.json -d stop
-    
+
         sudo ssserver -c /etc/shadowsocks.json -d restart
-    
+
 2.  Check from its log file if the server has been started successfully, any error will be reported here:
 
         tail /var/log/shadowsocks.log
-    
+
 3.  Also check if the server is listening on port `8000` using below command:
 
         netstat -tlunap | grep "LISTEN"
-    
+
 ## 7. Starting at system boot (optional)
 
 1.  Run the below command to open the `/etc/rc.local` file using your command line editor:
@@ -97,15 +97,15 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 2.  Add the following line to auto start Shadosocks service at boot:
 
         /usr/bin/python /usr/local/bin/ssserver -c /etc/shadowsocks.json -d start
-        
+
 3.  It's a good idea to restart your server to see if everything is working:
 
         sudo shutdown -r now
 
 4.  Once restarted, verify the log file again:
-  
+
         tail /var/log/shadowsocks.log
-		
+
 # Client configuration
 
 ## Linux operating system
@@ -118,19 +118,19 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 	    sudo apt-get update
 		sudo apt-get install shadowsocks-qt5
-		
+
 3.	Launch the Shadowsocks-Qt5 from the application manager of your Linux system.
 
 	![Linux client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/linux-client-shadowsocks-qt5.png "Linux client configuration")
-	
+
 4.	A new window will be opened for the connection manager, click to the `Add` and then choose `Manually` option to configure your connection settings.
 
 	![Linux client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/linux-client-shadowsocks-conn.png "Linux client configuration")
-	
+
 5.	Edit your client profile under the new connection manager as shown below.
 
 	![Linux client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/linux-client-shadowsocks-conn2.png "Linux client configuration")
-	
+
 >
 > Be sure to match `Server Address`, `Server Port`, `Password`, `Local Port` and `Encryption Method` with the values you specified in the above **5. Configuring Shadowsocks** section.
 
