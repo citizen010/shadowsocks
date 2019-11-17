@@ -15,27 +15,31 @@ Let’s say you find yourself in a situation where OpenVPN traffic is blocked or
 
 ## 1. Before You Begin
 
-1.  Familiarize yourself with our [Getting Started](/docs/getting-started) guide and complete the steps for setting your Linode's hostname and timezone.
+1.  Familiarize yourself with our [Getting Started](https://www.linode.com/docs/getting-started/) guide and complete the steps for setting your Linode's hostname and timezone.
 
-2.  This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](/docs/security/securing-your-server) to create a standard user account, harden SSH access and remove unnecessary network services. Do **not** follow the Configure a Firewall section yet--this guide includes firewall rules specifically for a Shadowsocks server.
+2.  This guide will use `sudo` wherever possible. Complete the sections of our [Securing Your Server](https://www.linode.com/docs/security/securing-your-server/) to create a standard user account, harden SSH access and remove unnecessary network services. Do **not** follow the Configure a Firewall section yet--this guide includes firewall rules specifically for a Shadowsocks server.
 
 3.  Update your system:
 
-        sudo apt-get update && sudo apt-get upgrade
+        `sudo apt-get update && sudo apt-get upgrade`
 
 ## 2. Open Corresponding Firewall Ports
 
 In this case we're using Shadowsocks's default port `8000`, but this could be any port you specify later in the configuration file.
 
-    sudo ufw allow 8000/tcp
+    ```
+		sudo ufw allow 8000/tcp
     sudo ufw enable
+		```
 
 ## 3. Installing Pip
 
 Pip is an easy to install package management system which is used to install and manage software found in the Python Package Index and it give us a convenient way to install Shadowsocks. Make sure that `pip` it's installed on your system, if not then use below command to install it.
 
-    sudo apt-get install python-pip
+    ```
+		sudo apt-get install python-pip
     sudo apt-get install python-m2crypto
+    ```
 
 This will installs the Python PIP and Python-m2crypto packages along with other dependencies. The **m2crypto** package is used to encrypt the tunnel traffic.
 
@@ -43,7 +47,7 @@ This will installs the Python PIP and Python-m2crypto packages along with other 
 
 Once the dependent packages are installed, issue the following `pip` command in your command line terminal to install shadowsocks.
 
-    sudo pip install shadowsocks
+    `sudo pip install shadowsocks`
 
 This will installs the latest available package.
 
@@ -53,15 +57,15 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 1.  Run the below command to open a new file using your command line editor and put the following configuration parameters in it.
 ```
-        sudo vim /etc/shadowsocks.json
+        sudo nano /etc/shadowsocks.json
 
 	{
     		"server":"your_server_ip",
     		"server_port":8000,
     		"local_port":1080,
-   		"password":"p4ssw0rD",
-   		"timeout":600,
-   		"method":"aes-256-cfb"
+   		  "password":"p4ssw0rD",
+   		  "timeout":600,
+   		  "method":"aes-256-cfb"
 	}
 ```
 >
@@ -74,37 +78,39 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 1.  Once you have your configuration in place, use below commands to start, stop or restart your Shadowsocks server as shown:
 
-        sudo ssserver -c /etc/shadowsocks.json -d start
+        ```
+				sudo ssserver -c /etc/shadowsocks.json -d start
 
         sudo ssserver -c /etc/shadowsocks.json -d stop
 
         sudo ssserver -c /etc/shadowsocks.json -d restart
+				```
 
 2.  Check from its log file if the server has been started successfully, any error will be reported here:
 
-        tail /var/log/shadowsocks.log
+        `tail /var/log/shadowsocks.log`
 
 3.  Also check if the server is listening on port `8000` using below command:
 
-        netstat -tlunap | grep "LISTEN"
+        `sudo netstat -tlunap | grep "LISTEN"`
 
 ## 7. Starting at system boot (optional)
 
 1.  Run the below command to open the `/etc/rc.local` file using your command line editor:
 
-        sudo vim /etc/rc.local
+        `sudo nano /etc/rc.local`
 
 2.  Add the following line to auto start Shadosocks service at boot:
 
-        /usr/bin/python /usr/local/bin/ssserver -c /etc/shadowsocks.json -d start
+        `/usr/bin/python /usr/local/bin/ssserver -c /etc/shadowsocks.json -d start`
 
 3.  It's a good idea to restart your server to see if everything is working:
 
-        sudo shutdown -r now
+        `sudo shutdown -r now`
 
 4.  Once restarted, verify the log file again:
 
-        tail /var/log/shadowsocks.log
+        `tail /var/log/shadowsocks.log`
 
 # Client configuration
 
@@ -112,12 +118,14 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 1.	On your Linux system, run the following command to install Shadowsocks client using PPA by adding a new apt repository.
 
-	    sudo add-apt-repository ppa:hzwhuang/ss-qt5
+	    `sudo add-apt-repository ppa:hzwhuang/ss-qt5`
 
 2.	Then update your system, so that the newly added repository should be updated and then we can install the Shadowsocks client by issuing the below command.		
 
-	    sudo apt-get update
+    ```
+		sudo apt-get update
 		sudo apt-get install shadowsocks-qt5
+    ```
 
 3.	Launch the Shadowsocks-Qt5 from the application manager of your Linux system.
 
