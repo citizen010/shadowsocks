@@ -1,14 +1,13 @@
+![MIT license](https://img.shields.io/badge/license-MIT-blue)
+
 # ShadowSocks Proxy Server
 Installing and configuring a ShawdowSocks Proxy Server and Client on Ubuntu 16.04.
 > This __HOW-TO__ as been tested on a Linode VM.
-
-<hr>
 
 [Shadowsocks](https://shadowsocks.org/) is a secure socks5 proxy, designed to protect your internet traffic. It encrypts the traffic between you and the servers, so nobody can spy on you. The main difference compare to VPN is that Shadowsocks is not global, which means not all your traffic will go through the server. If you want to use an Instant Messenger or a uTorrent, you will have to configure those programs settings to use the applicable Socks 5 proxy and port.
 
 Let’s say you find yourself in a situation where OpenVPN traffic is blocked or throttled, Shadowsocks is a good alternative to tunnel the entire network traffic.
 
->
 > This guide is written for a non-root user. Commands that require elevated privileges are prefixed with `sudo`.
 
 # Server configuration
@@ -21,14 +20,14 @@ Let’s say you find yourself in a situation where OpenVPN traffic is blocked or
 
 3.  Update your system:
 
-	`sudo apt-get update && sudo apt-get upgrade`
+`sudo apt-get update && sudo apt-get upgrade`
 
 ## 2. Open Corresponding Firewall Ports
 
 In this case we're using Shadowsocks's default port `8000`, but this could be any port you specify later in the configuration file.
 
-	sudo ufw allow 8000/tcp
-	sudo ufw enable
+`sudo ufw allow 8000/tcp`
+`sudo ufw enable`
 
 ## 3. Installing Pip
 
@@ -134,12 +133,10 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 	![Linux client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/linux-client-shadowsocks-conn2.png "Linux client configuration")
 
->
 > Be sure to match `Server Address`, `Server Port`, `Password`, `Local Port` and `Encryption Method` with the values you specified in the above **5. Configuring Shadowsocks** section.
 
 ## Windows operating system
 
->
 > Make sure that your Windows system has **.NET Framework 4.6.2** installed otherwise you will not be able to install the Shadowsocks Client package.
 
 1.	[Download](https://github.com/shadowsocks/shadowsocks/wiki/Ports-and-Clients) the Shadowsocks Client package for Windows, extract it and execute it.
@@ -148,7 +145,6 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 ![Windows client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/win-client-shadowsocks.png "Windows client configuration")
 
->
 > Be sure to match `Server Address`, `Server Port`, `Password` and `Local Port` with the values you specified in the above **5. Configuring Shadowsocks** section.
 
 ## Configuring Firefox to Use Shadowsocks
@@ -175,6 +171,3 @@ You may wish to consult the following resources for additional information on th
 + [Shadowsocks main site](https://shadowsocks.org/)
 + [Shadowsocks on GitHub](https://github.com/shadowsocks)
 
-# License
-
-<a href="https://raw.githubusercontent.com/citizen010/empty-site-template/master/LICENSE" rel="nofollow"><img src="https://camo.githubusercontent.com/890acbdcb87868b382af9a4b1fac507b9659d9bf/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667" alt="GitHub license" data-canonical-src="https://img.shields.io/badge/license-MIT-blue.svg" style="max-width:100%;"></a>
