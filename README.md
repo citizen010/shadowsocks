@@ -1,4 +1,4 @@
-![Shadowsocks](https://github.com/citizen010/blob/master/shadowsocks.jpg)
+![Shadowsocks](https://github.com/citizen010/shadowsocks/blob/master/shadowsocks.jpg)
 
 ![MIT license](https://img.shields.io/badge/license-MIT-blue)
 
