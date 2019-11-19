@@ -125,15 +125,15 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 3.	Launch the Shadowsocks-Qt5 from the application manager of your Linux system.
 
-	![Linux client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/linux-client-shadowsocks-qt5.png "Linux client configuration")
+	![Linux client configuration](https://github.com/citizen010/shadowsocks/blob/master/linux-client-shadowsocks-qt5.png "Linux client configuration")
 
 4.	A new window will be opened for the connection manager, click to the `Add` and then choose `Manually` option to configure your connection settings.
 
-	![Linux client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/linux-client-shadowsocks-conn.png "Linux client configuration")
+	![Linux client configuration](https://github.com/citizen010/shadowsocks/blob/master/linux-client-shadowsocks-conn.png "Linux client configuration")
 
 5.	Edit your client profile under the new connection manager as shown below.
 
-	![Linux client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/linux-client-shadowsocks-conn2.png "Linux client configuration")
+	![Linux client configuration](https://github.com/citizen010/shadowsocks/blob/master/linux-client-shadowsocks-conn2.png "Linux client configuration")
 
 > Be sure to match `Server Address`, `Server Port`, `Password`, `Local Port` and `Encryption Method` with the values you specified in the above **5. Configuring Shadowsocks** section.
 
@@ -145,7 +145,7 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 
 2.	Once installed, launch the client and configure the server parameters in it as shown below.
 
-![Windows client configuration](https://github.com/nastavnjc/shadowsocks-doc/blob/master/win-client-shadowsocks.png "Windows client configuration")
+![Windows client configuration](https://github.com/citizen010/shadowsocks/blob/master/win-client-shadowsocks.png "Windows client configuration")
 
 > Be sure to match `Server Address`, `Server Port`, `Password` and `Local Port` with the values you specified in the above **5. Configuring Shadowsocks** section.
 
@@ -154,11 +154,11 @@ Before we start Shahdowsocks on your Linode, let’s create a new file and put t
 1.	Open your firefox web browser on the system where you have installed the Shadowsocks client.
 2.	Open the menu from the top right corner of your firefox web browser, select the `Advanced` option and click on the `Settings` button under the `Network` menu bar.
 
-![Firefox proxy setting](https://github.com/nastavnjc/shadowsocks-doc/blob/master/firefox-set-proxy.png "Firefox proxy setting")
+![Firefox proxy setting](https://github.com/citizen010/shadowsocks/blob/master/firefox-set-proxy.png "Firefox proxy setting")
 
 3.	Next, under the Connection Settings, choose `Manual proxy configuration` and enter corresponding values as shown below.
 
-![Firefox proxy setting](https://github.com/nastavnjc/shadowsocks-doc/blob/master/firefox-manual-proxy.png "Firefox proxy setting")
+![Firefox proxy setting](https://github.com/citizen010/shadowsocks/blob/master/firefox-manual-proxy.png "Firefox proxy setting")
 
 4.	Now press the `OK` key to start surfing the web using your Shadowsocks proxy server.
 
